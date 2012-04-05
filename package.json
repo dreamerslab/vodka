@@ -1,0 +1,17 @@
+{
+  "name"        : "vodka",
+  "version"     : "0.0.1",
+  "description" : "A functional testing framework for web apps",
+  "keywords"    : [
+    "test", "testing", "functinal test"
+  ],
+  "author"       : "dreamerslab <ben@dreamerslab.com>",
+  "dependencies" : {},
+  "main"       : "index",
+  "repository" : {
+    "type"     : "git",
+    "url"      : "https://github.com/dreamerslab/vodka.git"
+  },
+  "engines" : [ "node >= 0.6.0" ],
+  "license" : "MIT"
+}
