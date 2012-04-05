@@ -1,0 +1,49 @@
+#!/usr/bin/env node
+
+var exit    = true;
+var coke    = require( '../index' );
+var cli     = require( '../lib/cli' );
+var args    = process.argv.slice( 2 );
+var command = args.shift();
+
+switch( command ){
+  case '-v':
+  case '--version':
+    console.log( coke.version );
+
+    break;
+
+  case 'n':
+  case 'new':
+    cli.init( args );
+    exit = false;
+
+    break;
+
+  case 'a':
+  case 'actions':
+    cli.action( args );
+    exit = false;
+
+    break;
+
+  case 'r':
+  case 'run':
+    cli.run();
+    exit = false;
+
+    break;
+
+  case 'h':
+  case 'help':
+  case '-h':
+  case '--help':
+  default:
+    cli.help();
+
+    break;
+}
+
+
+
+exit && process.exit( 0 );
