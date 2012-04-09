@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var exit    = true;
-var coke    = require( '../index' );
+var vodka   = require( '../index' );
 var cli     = require( '../lib/cli' );
 var args    = process.argv.slice( 2 );
 var command = args.shift();
@@ -9,20 +9,20 @@ var command = args.shift();
 switch( command ){
   case '-v':
   case '--version':
-    console.log( coke.version );
+    console.log( vodka.version );
 
     break;
 
-  case 'n':
-  case 'new':
-    cli.init( args );
+  case 'i':
+  case 'init':
+    cli.init();
     exit = false;
 
     break;
 
-  case 'a':
-  case 'actions':
-    cli.action( args );
+  case 'g':
+  case 'generate':
+    cli.generate( args );
     exit = false;
 
     break;
