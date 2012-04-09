@@ -2,11 +2,18 @@
   "name"        : "vodka",
   "version"     : "0.0.1",
   "description" : "A functional testing framework for web apps",
+  "bin"        : {
+    "vodka" : "./bin/vodka",
+    "vdk"   : "./bin/vodka"
+  },
   "keywords"    : [
     "test", "testing", "functinal test"
   ],
   "author"       : "dreamerslab <ben@dreamerslab.com>",
-  "dependencies" : {},
+  "dependencies" : {
+    "cli-color"  : "0.1.6",
+    "inflection" : "1.1.1"
+  },
   "main"       : "index",
   "repository" : {
     "type"     : "git",
