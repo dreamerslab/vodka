@@ -1,0 +1,16 @@
+{
+  "name"         : "vokda",
+  "version"      : "0.0.1",
+  "private"      : true,
+  "dependencies" : {
+    "node.extend" : "1.0.0",
+    "node.flow"   : "1.1.1",
+    "request"     : "2.9.153",
+    "vodka"       : "0.0.1",
+    "should"      : "0.6.0"
+  },
+  "main"    : "run",
+  "engines" : [ "node >= 0.6.0" ],
+  "license" : "MIT"
+}
+
