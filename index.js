@@ -1,3 +1,5 @@
+var fs = require( 'fs' );
+
 function vodka( base_dir ){
   // expose configs to global
   require( './lib/configs' )( base_dir );
