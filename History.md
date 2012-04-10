@@ -1,3 +1,9 @@
+## 0.0.4 / 2012-04-10
+
+- [bug fix] Missing args in init generator
+
+
+
 ## 0.0.3 / 2012-04-10
 
 - [bug fix] Typo
