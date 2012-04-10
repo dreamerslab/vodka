@@ -14,7 +14,7 @@ function vodka( base_dir ){
   var map = require( './lib/route' )( actions );
 
   // dispatch routes
-  require( base_dir + 'routes' )( map );
+  require( base_dir + '/routes' )( map );
 };
 
 vodka.version = JSON.parse( fs.readFileSync( __dirname + '/package.json', 'utf8' )).version;
