@@ -13,9 +13,9 @@ switch( command ){
 
     break;
 
-  case 'i':
-  case 'init':
-    cli.init();
+  case 'n':
+  case 'new':
+    cli.init( args );
     exit = false;
 
     break;
