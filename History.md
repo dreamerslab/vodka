@@ -1,3 +1,10 @@
+## 0.1.0 / 2012-04-11
+
+- [bug fix] Wrong package name in generator
+- [new feature] Generate action map in routes as well
+
+
+
 ## 0.0.4 / 2012-04-10
 
 - [bug fix] Missing args in init generator
