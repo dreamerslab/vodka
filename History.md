@@ -1,3 +1,9 @@
+## 0.2.1 / 2012-04-16
+
+- [update packages] infletion->1.2.0
+
+
+
 ## 0.2.0 / 2012-04-16
 
 - [new feature] New regex in utils

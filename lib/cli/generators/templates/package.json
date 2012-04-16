@@ -6,7 +6,7 @@
     "node.extend" : "1.0.0",
     "node.flow"   : "1.1.1",
     "request"     : "2.9.153",
-    "vodka"       : "0.2.0",
+    "vodka"       : "0.2.1",
     "should"      : "0.6.0"
   },
   "main"    : "run",
