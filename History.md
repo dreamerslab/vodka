@@ -1,3 +1,9 @@
+## 0.2.0 / 2012-04-16
+
+- [new feature] New regex in utils
+
+
+
 ## 0.1.0 / 2012-04-11
 
 - [bug fix] Wrong package name in generator
