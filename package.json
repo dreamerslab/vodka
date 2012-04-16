@@ -12,7 +12,7 @@
   "author"       : "dreamerslab <ben@dreamerslab.com>",
   "dependencies" : {
     "cli-color"  : "0.1.6",
-    "inflection" : "1.1.1"
+    "inflection" : "1.2.0"
   },
   "main"       : "index",
   "repository" : {
