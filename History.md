@@ -1,3 +1,9 @@
+## 0.3.0 / 2012-04-30
+
+  - [refactoring] Rename UTILS.is to UTILS.typeof and returns lowercased string instead
+
+
+
 ## 0.2.1 / 2012-04-16
 
 - [update packages] infletion->1.2.0
