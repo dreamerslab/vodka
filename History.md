@@ -1,6 +1,13 @@
+## 0.4.0 / 2012-05-10
+
+- [new feature] Add uid & ran_no to utils
+- [update packages] should->0.6.3, request->2.9.202
+
+
+
 ## 0.3.0 / 2012-04-30
 
-  - [refactoring] Rename UTILS.is to UTILS.typeof and returns lowercased string instead
+- [refactoring] Rename UTILS.is to UTILS.typeof and returns lowercased string instead
 
 
 
