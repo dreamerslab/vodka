@@ -5,9 +5,9 @@
   "dependencies" : {
     "node.extend" : "1.0.0",
     "node.flow"   : "1.1.1",
-    "request"     : "2.9.153",
-    "vodka"       : "0.3.0",
-    "should"      : "0.6.0"
+    "request"     : "2.9.202",
+    "vodka"       : "0.4.0",
+    "should"      : "0.6.3"
   },
   "main"    : "run",
   "engines" : [ "node >= 0.6.0" ],
