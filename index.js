@@ -14,7 +14,11 @@ function vodka( base_dir ){
   var map = require( './lib/route' )( actions );
 
   // dispatch routes
-  require( base_dir + '/routes' )( map );
+  if( CONF.routes ) return console.log(
+    UTILS.$alert( 'error' ) + '   routes file not specified in config'
+  );
+
+  require( base_dir + '/routes/' + ( CONF.routes || 'default' ))( map );
 };
 
 vodka.version = JSON.parse( fs.readFileSync( __dirname + '/package.json', 'utf8' )).version;
