@@ -1,3 +1,10 @@
+## 0.5.0 / 2012-05-14
+
+- [new feature] Add uid & ran_no to utils
+- [new feature] Multi-routes support
+- [update packages] should->0.6.3, request->2.9.202
+
+
 ## 0.4.0 / 2012-05-10
 
 - [new feature] Add uid & ran_no to utils
