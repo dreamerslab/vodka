@@ -14,7 +14,7 @@ function vodka( base_dir ){
   var map = require( './lib/route' )( actions );
 
   // dispatch routes
-  if( CONF.routes ) return console.log(
+  if( !CONF.routes ) return console.log(
     UTILS.$alert( 'error' ) + '   routes file not specified in config'
   );
 
