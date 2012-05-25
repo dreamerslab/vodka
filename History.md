@@ -1,3 +1,9 @@
+## 0.5.1 / 2012-05-25
+
+- [bug fix] Custom routes
+
+
+
 ## 0.5.0 / 2012-05-14
 
 - [new feature] Add uid & ran_no to utils
