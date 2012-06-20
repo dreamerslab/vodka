@@ -11,7 +11,7 @@
   ],
   "author"       : "dreamerslab <ben@dreamerslab.com>",
   "dependencies" : {
-    "cli-color"  : "0.1.6",
+    "cli-color"  : "0.1.7",
     "inflection" : "1.2.0"
   },
   "main"       : "index",
@@ -20,5 +20,8 @@
     "url"      : "https://github.com/dreamerslab/vodka.git"
   },
   "engines" : [ "node >= 0.6.0" ],
-  "license" : "MIT"
+  "licenses": [{
+    "type": "MIT",
+    "url" : "http://en.wikipedia.org/wiki/MIT_License"
+  }]
 }
