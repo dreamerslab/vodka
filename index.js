@@ -18,7 +18,20 @@ function vodka( base_dir ){
     UTILS.$alert( 'error' ) + '   routes file not specified in config'
   );
 
-  require( base_dir + '/routes/' + ( CONF.routes || 'default' ))( map );
+  var Flow = require( 'node.flow' );
+  var flow = new Flow();
+
+  if( UTILS.typeof( CONF.routes ) !== 'array' ){
+    throw new Error( '[vodka][configs] routes must be an array' );
+  }
+
+  CONF.routes.forEach( function ( route ){
+    flow.series( function ( next ){
+      require( base_dir + '/routes/' + route )( map, next );
+    });
+  });
+
+  flow.end( function (){});
 };
 
 vodka.version = JSON.parse( fs.readFileSync( __dirname + '/package.json', 'utf8' )).version;
