@@ -1,3 +1,9 @@
+## 0.6.0 / 2012-06-22
+
+- [new feature] Take array of routes to excute all tests at once
+- [refactoring] UTILS.typeof
+
+
 ## 0.5.1 / 2012-05-25
 
 - [bug fix] Custom routes
