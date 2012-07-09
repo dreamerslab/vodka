@@ -39,9 +39,9 @@ Install inflection through npm
     var Flow = require( 'node.flow' );
 
     module.exports = function ( map, out ){
-        flow.series( function ( next ){
-            map.get( 'url/users/', 'action_file_name#function_name', next );
-        });
+      flow.series( function ( next ){
+        map.get( 'url/users/', 'action_file_name#function_name', next );
+      });
     };
     
 > Add your action in `actions/action_file_name`
@@ -54,7 +54,7 @@ Install inflection through npm
           handler : function ( err, res, body ){}
         };
       },
-     };
+    };
      
 > Define your configuration in `configs`
     
