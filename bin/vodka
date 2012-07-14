@@ -44,6 +44,4 @@ switch( command ){
     break;
 }
 
-
-
 exit && process.exit( 0 );
