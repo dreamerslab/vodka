@@ -1,7 +1,9 @@
 # VODKA
 
-A functional testing framework for web apps.
+A functional testing framework for web apps 
 
+# Description
+**Vodka** is a functional testing framework born to fit the web apps that have API reponse with JSON need 
 
 
 ## Requires
@@ -34,7 +36,39 @@ Install inflection through npm
     # in the root dir of the test project
     $ vodka run
 
+> Define your configuration in `configs`
+    
+    module.exports = {
+      root    : 'http://127.0.0.1:4000',
+      timeout : 60000, // 1 min,
+      // add to this array if you have others route files that needs to split out
+      routes  : [ 'default' ]
+    };
 
+> Define your routes in `routes/default` with `node.flow`
+    
+    var Flow = require( 'node.flow' );
+
+    module.exports = function ( map, out ){
+      flow.series( function ( next ){
+        map.get( 'url/users/', 'action_file_name#function_name', next );
+      });
+    };
+    
+> Add your action in `actions/action_file_name`
+
+    module.exports = {
+      function_name : function ( args, next ){
+        return {
+          headers : {},
+          json    : {},
+          handler : function ( err, res, body ){}
+        };
+      },
+    };
+    
+> P/S : Visit [Request -- Simplified HTTP request method](https://github.com/mikeal/request)
+        for more details about object that needed to be return in action function
 
 ## License
 
