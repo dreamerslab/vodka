@@ -1,3 +1,9 @@
+## 0.6.1 / 2012-07-14
+
+- [refactoring] Update generator for array of routes to excute
+
+
+
 ## 0.6.0 / 2012-06-22
 
 - [new feature] Take array of routes to excute all tests at once
