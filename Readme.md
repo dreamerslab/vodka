@@ -1,9 +1,7 @@
 # VODKA
 
-A functional testing framework for web apps 
+A functional testing framework best suit for testing json api servers
 
-# Description
-**Vodka** is a functional testing framework born to fit the web apps that have API reponse with JSON need 
 
 
 ## Requires
@@ -14,13 +12,24 @@ Checkout `package.json` for dependencies.
 
 ## Installation
 
-Install inflection through npm
+Install through npm
 
     npm install vodka -g
 
 
 
 ## Usage
+
+### Command line tools
+
+    Usage: vodka [command] [argument(s)]
+
+    Commands:
+      -v, --version                Display vodka version
+      h,  help                     Display usage information
+      n,  new [project]            Create a new test project
+      g,  generate [file] [method] Generate code templates
+      r,  run                      Run tests
 
 > Generate a new test project
 
@@ -36,8 +45,12 @@ Install inflection through npm
     # in the root dir of the test project
     $ vodka run
 
+
+
+### Tutorial
+
 > Define your configuration in `configs`
-    
+
     module.exports = {
       root    : 'http://127.0.0.1:4000',
       timeout : 60000, // 1 min,
@@ -46,7 +59,7 @@ Install inflection through npm
     };
 
 > Define your routes in `routes/default` with `node.flow`
-    
+
     var Flow = require( 'node.flow' );
 
     module.exports = function ( map, out ){
@@ -54,7 +67,7 @@ Install inflection through npm
         map.get( 'url/users/', 'action_file_name#function_name', next );
       });
     };
-    
+
 > Add your action in `actions/action_file_name`
 
     module.exports = {
@@ -66,9 +79,42 @@ Install inflection through npm
         };
       },
     };
-    
-> P/S : Visit [Request -- Simplified HTTP request method](https://github.com/mikeal/request)
-        for more details about object that needed to be return in action function
+
+> Please visit [Request -- Simplified HTTP request method](https://github.com/mikeal/request) for detail
+
+
+### Globals
+
+- CONF
+    - base_dir
+    - action_dir
+    - data_dir
+    - root
+    - timeout
+    - routes
+
+> Plus custom configs in `configs.js`
+
+- UTILS
+    - $update
+    - $good
+    - $fine
+    - $alert
+    - regex
+        - begin_slash
+        - has_format
+        - has_none_characters
+        - is_js_file
+        - is_email
+        - tail_slash
+        - url
+    - ran_no
+    - typeof
+    - uid
+
+> Check the source for detail
+
+
 
 ## License
 
