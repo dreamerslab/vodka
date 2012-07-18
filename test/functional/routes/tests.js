@@ -1,6 +1,6 @@
-var Flow     = require( 'node.flow' );
+var Flow = require( 'node.flow' );
 
-module.exports = function ( map, done ){
+module.exports = function ( map, out ){
   var flow = new Flow();
 
   flow.series( function ( next ){
@@ -20,7 +20,8 @@ module.exports = function ( map, done ){
   });
 
   flow.end( function (){
-    console.log( 'All tests done' );
-    done();
+    console.log( 'functional tests passed' );
+    out();
+    process.exit();
   });
 };

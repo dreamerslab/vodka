@@ -1,10 +1,10 @@
-var utils       = require( './utils' );
-var server      = require( './server' );
-var config_test = require( './config-test' );
-var Flow        = require( 'node.flow' );
-var flow        = new Flow();
+var utils  = require( './unit/utils' );
+var config = require( './unit/config' );
+var server = require( './functional/server' );
+var Flow   = require( 'node.flow' );
+var flow   = new Flow();
 
-// utils test
+// unit test
 flow.series( function ( next ){
   var inner_flow = new Flow();
 
@@ -15,27 +15,23 @@ flow.series( function ( next ){
   });
 
   inner_flow.join().end( function(){
-    console.log( 'Utils tests all passed' );
+    console.log( 'utils tests passed' );
     next();
   });
 });
 
-//
 flow.series( function ( next ){
-  server.start( 4000 , next );
+  config();
+  next();
 });
 
+// functional test
 flow.series( function ( next ){
+  server( 4000, next );
+});
+
+flow.end( function (){
   var vodka = require( '../index' );
 
-  vodka( __dirname + '/virtuals' );
-  next();
+  vodka( __dirname + '/functional' );
 });
-
-flow.series( function ( next ){
-  config_test.test();
-
-  next();
-});
-
-flow.end( function(){});
