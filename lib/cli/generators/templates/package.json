@@ -4,9 +4,9 @@
   "private"      : true,
   "dependencies" : {
     "node.extend" : "1.0.0",
-    "node.flow"   : "1.1.1",
+    "node.flow"   : "1.1.2",
     "request"     : "2.9.203",
-    "vodka"       : "0.6.1"
+    "vodka"       : "1.0.0"
   },
   "main"    : "run",
   "engines" : [ "node >= 0.6.0" ]
