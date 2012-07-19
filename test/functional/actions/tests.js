@@ -11,9 +11,7 @@ module.exports = {
       },
       handler : function ( err, res, body ){
         res.should.be.json;
-        body.should.have.property( 'msg' );
-        var msg = body.msg;
-        msg.should.eql( '[get] test passed' );
+        body.should.have.property( 'msg' ).eql( '[get] test passed' );
 
         next();
       }
@@ -30,10 +28,8 @@ module.exports = {
       },
       handler : function ( err, res, body ){
         res.should.be.json;
-        body.should.have.property( 'msg' );
-        var msg = body.msg;
-        msg.should.eql( '[post] test passed' );
-        
+        body.should.have.property( 'msg' ).eql( '[post] test passed' );
+
         next();
       }
     };
@@ -49,9 +45,7 @@ module.exports = {
       },
       handler : function ( err, res, body ){
         res.should.be.json;
-        body.should.have.property( 'msg' );
-        var msg = body.msg;
-        msg.should.eql( '[put] test passed' );
+        body.should.have.property( 'msg' ).eql( '[put] test passed' );
 
         next();
       }
@@ -68,9 +62,7 @@ module.exports = {
       },
       handler : function ( err, res, body ){
         res.should.be.json;
-        body.should.have.property( 'msg' );
-        var msg = body.msg;
-        msg.should.eql( '[delete] test passed' );
+        body.should.have.property( 'msg' ).eql( '[delete] test passed' );
 
         next();
       }

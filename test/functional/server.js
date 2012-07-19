@@ -39,8 +39,7 @@ app.delete( '/tests/delete', function ( req, res ){
   res.json({ msg : '[delete] test passed' });
 });
 
-module.exports.start = function ( port, done ){
+module.exports = function ( port, next ){
   app.listen( port );
-  console.log( 'Server start...' );
-  done();
+  next();
 }

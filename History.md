@@ -1,3 +1,11 @@
+#History
+
+## 1.0.0 / 2012-07-19
+
+- [update packages] node.flow->1.1.2
+
+
+
 ## 0.6.1 / 2012-07-14
 
 - [refactoring] Update generator for array of routes to excute
