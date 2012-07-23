@@ -1,6 +1,6 @@
 # Vodka example
 
-This example are using [Express](http://expressjs.com), please visit offcial website for more detailed documentation.
+This example is using [Express](http://expressjs.com), please visit offcial website for more detailed documentation.
 
 # Run the example
   
@@ -50,7 +50,7 @@ This example are using [Express](http://expressjs.com), please visit offcial web
     
   * `action_module_name` defined at `path/to/example/test/actions/action_module.js` on next step
   * [detailed documentation](https://github.com/dreamerslab/node.flow) about `flow`
-  * [detailed documentation](http://railwayjs.com/) about `map`
+  * `map.get` could be change to `map.post`, `map.delete` or `map.put` depands on your API, there is [detailed documentation](http://railwayjs.com/) about `map`
   
 3.Define what to test/action handler at `path/to/example/test/actions/action_module.js`
 
