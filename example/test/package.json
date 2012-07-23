@@ -1,0 +1,13 @@
+{
+  "name"         : "vodka-example",
+  "version"      : "0.0.1",
+  "private"      : true,
+  "dependencies" : {
+    "express" : "2.5.11",
+    "vodka"   : "1.0.0",
+    "should"  : "1.0.0"
+  },
+  "main"    : "run",
+  "engines" : [ "node >= 0.6.0" ],
+  "license" : "MIT"
+}
