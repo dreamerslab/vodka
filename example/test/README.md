@@ -1,6 +1,6 @@
 # Vodka example
 
-    This example are using [Express](http://expressjs.com), please visit offcial website for more detailed documentation.
+This example are using [Express](http://expressjs.com), please visit offcial website for more detailed documentation.
 
 # Run the example
   
