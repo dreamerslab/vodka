@@ -38,7 +38,7 @@ This example is using [Express](http://expressjs.com), please visit offcial webs
       var flow = new Flow();
 
       flow.series( function ( next ){
-        map.get( 'url/to/api', 'action_module_name#handler_method', next );
+        map.get( 'url/to/api', 'action_module#handler_method', next );
       });
 
       flow.end( function (){
@@ -48,7 +48,7 @@ This example is using [Express](http://expressjs.com), please visit offcial webs
       });
     };
     
-  * `action_module_name` defined at `path/to/example/test/actions/action_module.js` on next step
+  * `action_module` wiil be define at `path/to/example/test/actions/action_module.js` on next step
   * [detailed documentation](https://github.com/dreamerslab/node.flow) about `flow`
   * `map.get` could be change to `map.post`, `map.delete` or `map.put` depands on your API, there is [detailed documentation](http://railwayjs.com/) about `map`
   
