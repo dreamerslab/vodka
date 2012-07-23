@@ -1,5 +1,12 @@
 #History
 
+## 1.0.1 / 2012-07-23
+
+- [update packages] inflection->1.2.2, node.flow->1.1.3, should->1.0.0
+- [refactoring] Use `fs` instead of `path` for node v0.8.x
+
+
+
 ## 1.0.0 / 2012-07-19
 
 - [update packages] node.flow->1.1.2

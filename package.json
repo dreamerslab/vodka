@@ -1,6 +1,6 @@
 {
   "name"        : "vodka",
-  "version"     : "1.0.0",
+  "version"     : "1.0.1",
   "description" : "A functional testing framework for web apps",
   "bin"        : {
     "vodka" : "./bin/vodka",
@@ -12,18 +12,17 @@
   "author"       : "dreamerslab <ben@dreamerslab.com>",
   "dependencies" : {
     "cli-color"  : "0.1.7",
-    "inflection" : "1.2.1",
-    "node.flow"  : "1.1.2"
+    "inflection" : "1.2.2",
+    "node.flow"  : "1.1.3"
   },
   "devDependencies": {
     "express"     : "2.5.11",
     "node.extend" : "1.0.0",
-    "node.flow"   : "1.1.2",
     "request"     : "2.9.203",
     "should"      : "1.0.0"
   },
   "devDependencies" : {
-    "should"      : "0.6.3",
+    "should"      : "1.0.0",
     "request"     : "2.9.203",
     "node.extend" : "1.0.0",
     "express"     : "2.5.11"
