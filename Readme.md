@@ -71,11 +71,13 @@ Install through npm
 > Add your action in `actions/action_file_name`
 
     module.exports = {
-      function_name : function ( args, next ){
+      function_name : function ( args, next , log ){
         return {
           headers : {},
           json    : {},
-          handler : function ( err, res, body ){}
+          handler : function ( err, res, body ){
+            log( 'bla bla bla' );
+          }
         };
       },
     };
