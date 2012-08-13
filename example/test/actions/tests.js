@@ -9,9 +9,10 @@ module.exports = {
       json : {
         test : 'JSON test'
       },
-      handler : function ( err, res, body ){
+      handler : function ( err, res, body, log ){
         res.should.be.json;
         body.should.have.property( 'msg' ).eql( '[get] test passed' );
+        log( 'bla bla bla' );
 
         next();
       }
@@ -26,9 +27,10 @@ module.exports = {
       json : {
         test : 'JSON test'
       },
-      handler : function ( err, res, body ){
+      handler : function ( err, res, body, log ){
         res.should.be.json;
         body.should.have.property( 'msg' ).eql( '[post] test passed' );
+        log( 'bla bla bla' );
 
         next();
       }
@@ -43,10 +45,11 @@ module.exports = {
       json    : {
         test : 'JSON test'
       },
-      handler : function ( err, res, body ){
+      handler : function ( err, res, body, log ){
         res.should.be.json;
         body.should.have.property( 'msg' ).eql( '[put] test passed' );
 
+        log( 'bla bla bla' );
         next();
       }
     };
@@ -60,10 +63,11 @@ module.exports = {
       json : {
         test : 'JSON test'
       },
-      handler : function ( err, res, body ){
+      handler : function ( err, res, body, log ){
         res.should.be.json;
         body.should.have.property( 'msg' ).eql( '[delete] test passed' );
 
+        log( 'bla bla bla' );
         next();
       }
     };
