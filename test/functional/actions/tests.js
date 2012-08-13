@@ -12,8 +12,8 @@ module.exports = {
       handler : function ( err, res, body, log ){
         res.should.be.json;
         body.should.have.property( 'msg' ).eql( '[get] test passed' );
-        log( 'bla bla bla' );
 
+        log( 'bla bla bla' );
         next();
       }
     };
@@ -30,8 +30,8 @@ module.exports = {
       handler : function ( err, res, body, log ){
         res.should.be.json;
         body.should.have.property( 'msg' ).eql( '[post] test passed' );
-        log( 'bla bla bla' );
 
+        log( 'bla bla bla' );
         next();
       }
     };
