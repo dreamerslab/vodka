@@ -1,5 +1,11 @@
 #History
 
+## 1.1.0 / 2012-08-14
+
+- [new feature] Automatically add `routes->methods` mapping log
+
+
+
 ## 1.0.1 / 2012-07-23
 
 - [update packages] inflection->1.2.2, node.flow->1.1.3, should->1.0.0
