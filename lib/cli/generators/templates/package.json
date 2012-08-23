@@ -5,8 +5,8 @@
   "dependencies" : {
     "node.extend" : "1.0.0",
     "node.flow"   : "1.1.3",
-    "request"     : "2.9.203",
-    "vodka"       : "1.0.1"
+    "request"     : "2.10.0",
+    "vodka"       : "1.1.1"
   },
   "main"    : "run",
   "engines" : [ "node >= 0.8.0" ]

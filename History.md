@@ -1,5 +1,11 @@
 #History
 
+## 1.1.1 / 2012-08-23
+
+- [refactoring] Update logger color
+
+
+
 ## 1.1.0 / 2012-08-14
 
 - [new feature] Automatically add `routes->methods` mapping log

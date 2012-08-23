@@ -1,6 +1,6 @@
 {
   "name"        : "vodka",
-  "version"     : "1.1.0",
+  "version"     : "1.1.1",
   "description" : "A functional testing framework for web apps",
   "bin"        : {
     "vodka" : "./bin/vodka",
@@ -26,7 +26,7 @@
     "type"     : "git",
     "url"      : "https://github.com/dreamerslab/vodka.git"
   },
-  "engines" : [ "node >= 0.6.0" ],
+  "engines" : [ "node >= 0.8.0" ],
   "licenses": [{
     "type": "MIT",
     "url" : "http://en.wikipedia.org/wiki/MIT_License"
