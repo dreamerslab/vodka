@@ -1,5 +1,12 @@
 #History
 
+## 2.0.2 / 2012-09-12
+
+- [bug fix] `routes` should be `actions` in configs
+- [bug fix] Remove useless packages
+
+
+
 ## 2.0.1 / 2012-09-12
 
 - [bug fix] Wrong generator format
