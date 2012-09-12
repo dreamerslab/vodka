@@ -1,37 +1,41 @@
-var fs = require( 'fs' );
+var fs    = require( 'fs' );
+var trunk = require( 'secret' );
 
 function vodka( base_dir ){
-  // expose configs to global
-  require( './lib/configs' )( base_dir );
+  // expose global objects
+  require( './lib/global' )( base_dir );
 
   // expose utils to global
   require( './lib/utils' );
 
-  // build actions
-  var actions = require( './lib/actions' );
-
-  // build router
-  var map = require( './lib/route' )( actions );
-
-  // dispatch routes
-  if( CONF.routes === undefined ) return console.log(
-    UTILS.$alert( 'error' ) + '   routes file not specified in config'
-  );
+  var dispatcher = require( './lib/dispatcher' );
 
   var Flow = require( 'node.flow' );
   var flow = new Flow();
 
-  if( UTILS.typeof( CONF.routes ) !== 'array' ){
-    throw new Error( '[vodka][configs] routes must be an array' );
+  // dispatch actions
+  if( CONF.actions === undefined ) return console.log(
+    UTILS.$alert( 'error' ) + '   actions file not specified in config'
+  );
+
+  if( UTILS.typeof( CONF.actions ) !== 'array' ){
+    throw new Error( '[vodka][configs] actions must be an array' );
   }
 
-  CONF.routes.forEach( function ( route ){
+  CONF.actions.forEach( function ( file_name ){
     flow.series( function ( next ){
-      require( base_dir + '/routes/' + route )( map, next );
+      var Action = require( ACTION_DIR + file_name );
+      var action = new Action( dispatcher, next );
+
+      if( !trunk.get( file_name )){
+        trunk.set( file_name, action );
+      }
     });
   });
 
-  flow.end( function (){});
+  flow.end( function (){
+    console.log( UTILS.$good( 'All test passed :)' ));
+  });
 };
 
 vodka.version = JSON.parse( fs.readFileSync( __dirname + '/package.json', 'utf8' )).version;
