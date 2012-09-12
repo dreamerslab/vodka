@@ -1,8 +1,9 @@
 var should  = require( 'should' );
 var express = require( 'express' );
-var app  = express.createServer();
+var app     = express.createServer();
 
 app.configure( function(){
+  app.use( express.logger());
   app.use( express.bodyParser());
   app.use( express.methodOverride());
   app.use( app.router );

@@ -1,5 +1,24 @@
 #History
 
+## 2.0.2 / 2012-09-12
+
+- [bug fix] `routes` should be `actions` in configs
+- [bug fix] Remove useless packages
+
+
+
+## 2.0.1 / 2012-09-12
+
+- [bug fix] Wrong generator format
+
+
+
+## 2.0.0 / 2012-09-12
+
+- [refactoring] New project structure, split request & response in different files
+
+
+
 ## 1.1.1 / 2012-08-23
 
 - [refactoring] Update logger color
