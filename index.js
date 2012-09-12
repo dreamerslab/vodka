@@ -1,5 +1,4 @@
-var fs    = require( 'fs' );
-var trunk = require( 'secret' );
+var fs = require( 'fs' );
 
 function vodka( base_dir ){
   // expose global objects
@@ -25,11 +24,8 @@ function vodka( base_dir ){
   CONF.actions.forEach( function ( file_name ){
     flow.series( function ( next ){
       var Action = require( ACTION_DIR + file_name );
-      var action = new Action( dispatcher, next );
 
-      if( !trunk.get( file_name )){
-        trunk.set( file_name, action );
-      }
+      new Action( dispatcher, next );
     });
   });
 
