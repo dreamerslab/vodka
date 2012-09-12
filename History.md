@@ -1,5 +1,11 @@
 #History
 
+## 2.0.0 / 2012-09-12
+
+- [refactoring] New project structure, split request & response in different files
+
+
+
 ## 1.1.1 / 2012-08-23
 
 - [refactoring] Update logger color
