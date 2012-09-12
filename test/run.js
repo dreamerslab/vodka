@@ -1,5 +1,5 @@
 var utils  = require( './unit/utils' );
-var config = require( './unit/config' );
+var global = require( './unit/global' );
 var server = require( './functional/server' );
 var Flow   = require( 'node.flow' );
 var flow   = new Flow();
@@ -21,7 +21,7 @@ flow.series( function ( next ){
 });
 
 flow.series( function ( next ){
-  config();
+  global();
   next();
 });
 
