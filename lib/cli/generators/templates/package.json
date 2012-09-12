@@ -5,7 +5,7 @@
   "dependencies" : {
     "node.class" : "1.0.1",
     "should"     : "1.1.0",
-    "vodka"      : "2.0.0"
+    "vodka"      : "2.0.1"
   },
   "main"    : "run",
   "engines" : [ "node >= 0.8.0" ]

@@ -1,5 +1,11 @@
 #History
 
+## 2.0.1 / 2012-09-12
+
+- [bug fix] Wrong generator format
+
+
+
 ## 2.0.0 / 2012-09-12
 
 - [refactoring] New project structure, split request & response in different files
