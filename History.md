@@ -1,5 +1,11 @@
 #History
 
+## 2.0.3 / 2012-09-12
+
+- [bug fix] Add missing `fixture` to utils
+
+
+
 ## 2.0.2 / 2012-09-12
 
 - [bug fix] `routes` should be `actions` in configs
