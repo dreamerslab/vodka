@@ -1,5 +1,12 @@
 #History
 
+## 2.0.4 / 2012-09-13
+
+- [refactoring] Pretty print json in `fixture`
+- [bug fix] Nested params in `build_uri`
+
+
+
 ## 2.0.3 / 2012-09-12
 
 - [bug fix] Add missing `fixture` to utils
