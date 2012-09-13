@@ -7,11 +7,6 @@ function vodka( base_dir ){
   // expose utils to global
   require( './lib/utils' );
 
-  var dispatcher = require( './lib/dispatcher' );
-
-  var Flow = require( 'node.flow' );
-  var flow = new Flow();
-
   // dispatch actions
   if( CONF.actions === undefined ) return console.log(
     UTILS.$alert( 'error' ) + '   actions file not specified in config'
@@ -21,16 +16,37 @@ function vodka( base_dir ){
     throw new Error( '[vodka][configs] actions must be an array' );
   }
 
-  CONF.actions.forEach( function ( file_name ){
-    flow.series( function ( next ){
-      var Action = require( ACTION_DIR + file_name );
+  var Flow         = require( 'node.flow' );
+  var outter_flow  = new Flow();
+  var Dispatcher   = require( './lib/dispatcher' );
+  var Client       = require( './lib/client' );
 
-      new Action( dispatcher, next );
+  CONF.actions.forEach( function ( file_name ){
+    outter_flow.series( function ( outter_next ){
+      var Action          = require( ACTION_DIR + file_name );
+      var client          = new Client();
+      var action_instance = new Action( client );
+      var flow            = new Flow();
+
+      client.actions.forEach( function ( action ){
+        flow.series( function ( next ){
+          if( action.method === 'run' ){
+            return action.apply( action_instance, slice.call( arguments ));
+          }
+
+          new Dispatcher( action.method, action.uri, action_instance, action.action, action.handler_name, next );
+        });
+      });
+
+      flow.end( function (){
+        outter_next();
+      });
     });
   });
 
-  flow.end( function (){
+  outter_flow.end( function (){
     console.log( UTILS.$good( 'All test passed :)' ));
+    process.exit( 0 );
   });
 };
 
