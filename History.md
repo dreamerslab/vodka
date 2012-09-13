@@ -1,5 +1,12 @@
 #History
 
+## 2.1.0 / 2012-09-13
+
+- [bug fix] Action context scope
+- [refactoring] Does not need to call out manually
+
+
+
 ## 2.0.4 / 2012-09-13
 
 - [refactoring] Pretty print json in `fixture`
