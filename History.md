@@ -1,5 +1,11 @@
 #History
 
+## 2.1.1 / 2012-09-14
+
+- [refactoring] Add detail error msg
+
+
+
 ## 2.1.0 / 2012-09-13
 
 - [bug fix] Action context scope
