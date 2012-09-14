@@ -1,5 +1,11 @@
 #History
 
+## 2.1.2 / 2012-09-14
+
+- [bug fix] Standalone test runner
+
+
+
 ## 2.1.1 / 2012-09-14
 
 - [refactoring] Add detail error msg
