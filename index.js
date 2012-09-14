@@ -31,7 +31,7 @@ function vodka( base_dir ){
       client.actions.forEach( function ( action ){
         flow.series( function ( next ){
           if( action.method === 'run' ){
-            return action.apply( action_instance, slice.call( arguments ));
+            return action.action.apply( action_instance, [].slice.call( arguments ));
           }
 
           new Dispatcher( action.method, action.uri, action_instance, action.action, action.handler_name, next );
