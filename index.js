@@ -9,7 +9,7 @@ function vodka( base_dir ){
 
   // dispatch actions
   if( CONF.actions === undefined ) return console.log(
-    UTILS.$alert( 'error' ) + '   actions file not specified in config'
+    UTILS.$alert( 'error' ) + '   actions not specified in config'
   );
 
   if( UTILS.typeof( CONF.actions ) !== 'array' ){
@@ -24,7 +24,7 @@ function vodka( base_dir ){
   CONF.actions.forEach( function ( file_name ){
     outter_flow.series( function ( outter_next ){
       var Action          = require( ACTION_DIR + file_name );
-      var client          = new Client();
+      var client          = new Client( file_name );
       var action_instance = new Action( client );
       var flow            = new Flow();
 
