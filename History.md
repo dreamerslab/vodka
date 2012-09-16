@@ -1,5 +1,11 @@
 #History
 
+## 2.1.3 / 2012-09-16
+
+- [new feature] Add merge fn to `utils`
+
+
+
 ## 2.1.2 / 2012-09-14
 
 - [bug fix] Standalone test runner
