@@ -1,5 +1,11 @@
 #History
 
+## 2.1.4 / 2012-09-16
+
+- [bug fix] Exit on error
+
+
+
 ## 2.1.3 / 2012-09-16
 
 - [new feature] Add merge fn to `utils`
