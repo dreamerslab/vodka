@@ -6,7 +6,7 @@
     "express"    : "2.5.11",
     "node.class" : "1.0.1",
     "should"     : "1.1.0",
-    "vodka"      : "2.1.5"
+    "vodka"      : "2.1.6"
   },
   "main"    : "run",
   "engines" : [ "node >= 0.8.0" ],

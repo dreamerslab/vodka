@@ -1,5 +1,11 @@
 #History
 
+## 2.1.6 / 2012-09-17
+
+- [bug fix] Handler context scope
+
+
+
 ## 2.1.5 / 2012-09-16
 
 - [refactoring] Add error handling detail
