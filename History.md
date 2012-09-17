@@ -1,5 +1,11 @@
 #History
 
+## 2.1.5 / 2012-09-16
+
+- [refactoring] Add error handling detail
+
+
+
 ## 2.1.4 / 2012-09-16
 
 - [bug fix] Exit on error
