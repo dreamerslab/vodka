@@ -1,6 +1,6 @@
 {
   "name"        : "vodka",
-  "version"     : "2.1.6",
+  "version"     : "2.1.7",
   "description" : "A functional testing framework for web apps",
   "bin"        : {
     "vodka" : "./bin/vodka",

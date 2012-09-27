@@ -1,5 +1,12 @@
 #History
 
+## 2.1.7 / 2012-09-27
+
+- [update packages] `should`->1.2.0
+- [bug fix] Typo in generator
+
+
+
 ## 2.1.6 / 2012-09-17
 
 - [bug fix] Handler context scope
