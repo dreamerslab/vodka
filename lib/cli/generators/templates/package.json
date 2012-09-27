@@ -1,11 +1,11 @@
 {
-  "name"         : "vokda-test",
+  "name"         : "vodka-test",
   "version"      : "0.0.1",
   "private"      : true,
   "dependencies" : {
     "node.class" : "1.0.1",
-    "should"     : "1.1.0",
-    "vodka"      : "2.1.6"
+    "should"     : "1.2.0",
+    "vodka"      : "2.1.7"
   },
   "main"    : "run",
   "engines" : [ "node >= 0.8.0" ]
