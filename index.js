@@ -12,7 +12,7 @@ function vodka( base_dir ){
     UTILS.$alert( 'error' ) + '   actions not specified in config'
   );
 
-  if( UTILS.typeof( CONF.actions ) !== 'array' ){
+  if( UTILS.is( CONF.actions ) !== 'array' ){
     throw new Error( '[vodka][configs] actions must be an array' );
   }
 
