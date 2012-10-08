@@ -1,5 +1,11 @@
 #History
 
+## 2.2.0 / 2012-10-8
+
+- [refactoring] For name confict, switch `typeof` back to `is`
+
+
+
 ## 2.1.7 / 2012-09-27
 
 - [update packages] `should`->1.2.0
