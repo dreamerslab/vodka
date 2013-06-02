@@ -1,5 +1,11 @@
 #History
 
+## 2.2.1 / 2013-6-2
+
+- [update packages] `cli-color`->0.2.2, `inflection`->1.2.6, `node.flow`->1.2.2, `request`->2.21.0, `node.extend`->1.0.7, `should`->1.2.2
+
+
+
 ## 2.2.0 / 2012-10-8
 
 - [refactoring] For name confict, switch `typeof` back to `is`
