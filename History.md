@@ -1,5 +1,11 @@
 #History
 
+## 2.2.3 / 2013-12-16
+
+- [update packages]  `request`->2.30.0
+
+
+
 ## 2.2.2 / 2013-12-12
 
 - [update packages] `cli-color`->0.2.3, `inflection`->1.3.2, `node.class`->1.1.1, `node.flow`->1.2.3, `request`->2.29.0, `node.extend`->1.0.8, `should`->2.1.1
