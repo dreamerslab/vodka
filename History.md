@@ -1,5 +1,11 @@
 #History
 
+## 2.2.4 / 2013-12-17
+
+- [update packages] `node.class`->1.1.3
+
+
+
 ## 2.2.3 / 2013-12-16
 
 - [update packages]  `request`->2.30.0
