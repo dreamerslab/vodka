@@ -16,10 +16,10 @@ function vodka( base_dir ){
     throw new Error( '[vodka][configs] actions must be an array' );
   }
 
-  var Flow         = require( 'node.flow' );
-  var outter_flow  = new Flow();
-  var Dispatcher   = require( './lib/dispatcher' );
-  var Client       = require( './lib/client' );
+  var Flow        = require( 'node.flow' );
+  var outter_flow = new Flow();
+  var Dispatcher  = require( './lib/dispatcher' );
+  var Client      = require( './lib/client' );
 
   CONF.actions.forEach( function ( file_name ){
     outter_flow.series( function ( outter_next ){
