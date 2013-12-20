@@ -7,58 +7,58 @@ module.exports = {
     callback();
   },
 
-  // typeof test
-  'test .typeof undefined' : function ( callback ){
-    utils.typeof( undefined ).should.eql( 'undefined' );
+  // is test
+  'test .is undefined' : function ( callback ){
+    utils.is( undefined ).should.eql( 'undefined' );
     callback();
   },
 
-  'test .typeof null' : function ( callback ){
-    utils.typeof( null ).should.eql( 'null' );
+  'test .is null' : function ( callback ){
+    utils.is( null ).should.eql( 'null' );
     callback();
   },
 
-  'test .typeof NaN' : function ( callback ){
-    utils.typeof( parseInt( 'fff' )).should.eql( 'NaN' );
+  'test .is NaN' : function ( callback ){
+    utils.is( parseInt( 'fff' )).should.eql( 'NaN' );
     callback();
   },
 
-  'test .typeof string' : function ( callback ){
-    utils.typeof( '' ).should.eql( 'string' );
+  'test .is string' : function ( callback ){
+    utils.is( '' ).should.eql( 'string' );
     callback();
   },
 
-  'test .typeof object' : function ( callback ){
-    utils.typeof({}).should.eql( 'object' );
+  'test .is object' : function ( callback ){
+    utils.is({}).should.eql( 'object' );
     callback();
   },
 
-  'test .typeof array' : function ( callback ){
-    utils.typeof([]).should.eql( 'array' );
-    utils.typeof( new Array()).should.eql( 'array' );
+  'test .is array' : function ( callback ){
+    utils.is([]).should.eql( 'array' );
+    utils.is( new Array()).should.eql( 'array' );
     callback();
   },
 
-  'test .typeof number' : function ( callback ){
-    utils.typeof( 1234 ).should.eql( 'number' );
+  'test .is number' : function ( callback ){
+    utils.is( 1234 ).should.eql( 'number' );
     callback();
   },
 
-  'test .typeof boolean' : function ( callback ){
-    utils.typeof( true ).should.eql( 'boolean' );
+  'test .is boolean' : function ( callback ){
+    utils.is( true ).should.eql( 'boolean' );
     callback();
   },
 
-  'test .typeof function' : function ( callback ){
-    utils.typeof( function(){}).should.eql( 'function' );
+  'test .is function' : function ( callback ){
+    utils.is( function(){}).should.eql( 'function' );
     callback();
   },
 
-  'test .typeof error' : function ( callback ){
-    utils.typeof( new Error()).should.eql( 'error' );
+  'test .is error' : function ( callback ){
+    utils.is( new Error()).should.eql( 'error' );
     callback();
   },
-  // end typeof test
+  // end is test
 
   'test .uid' : function( callback ){
     utils.uid( 32 ).should.be.a( 'string' ).and.have.length( 32 );
