@@ -1,6 +1,6 @@
 {
   "name"        : "vodka",
-  "version"     : "2.3.0",
+  "version"     : "2.3.1",
   "description" : "A functional testing framework for web apps",
   "bin"        : {
     "vodka" : "./bin/vodka",
@@ -31,5 +31,8 @@
   "licenses": [{
     "type": "MIT",
     "url" : "http://en.wikipedia.org/wiki/MIT_License"
-  }]
+  }],
+  "scripts" : {
+    "test"  : "node test/run.js"
+  }
 }

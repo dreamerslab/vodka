@@ -1,5 +1,13 @@
 #History
 
+## 2.3.1 / 2013-12-20
+
+- [refactoring] `utils.typeof` changed to `utils.is` in test
+- [refactoring] Resolve path in test
+- [bug fix] Added missing `/`
+
+
+
 ## 2.3.0 / 2013-12-20
 
 - [refactoring] Remove all trailing `/` for global var `DIR`
