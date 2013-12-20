@@ -23,7 +23,7 @@ function vodka( base_dir ){
 
   CONF.actions.forEach( function ( file_name ){
     outter_flow.series( function ( outter_next ){
-      var Action          = require( ACTION_DIR + file_name );
+      var Action          = require( ACTION_DIR + '/' + file_name );
       var client          = new Client( file_name );
       var action_instance = new Action( client );
       var flow            = new Flow();
