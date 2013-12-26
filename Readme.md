@@ -58,50 +58,69 @@ Install through npm
       routes  : [ 'default' ]
     };
 
-> Define your routes in `routes/default` with `node.flow`
+> Add your action in `actions/action_file_name.js`
 
-    var Flow = require( 'node.flow' );
+    var Class = require( 'node.class' );
 
-    module.exports = function ( map, out ){
-      flow.series( function ( next ){
-        map.get( 'url/users/', 'action_file_name#function_name', next );
-      });
-    };
+    module.exports = Class.extend({
 
-> Add your action in `actions/action_file_name`
-
-    module.exports = {
-      function_name : function ( args, next , log ){
-        return {
-          headers : {},
-          json    : {},
-          handler : function ( err, res, body ){
-            log( 'bla bla bla' );
-          }
-        };
+      init : function ( client ){
+        client.get( 'hello', this.hello, 'hello#index' );
       },
-    };
+
+      hello : function (){
+        return {
+          headers : {}, // pass any headers to the server
+          form    : {}, // for passing form inputs
+          qs      : {}, // for passing get request params
+          json    : {} // this is useful if you are testing an api server
+        };
+      }
+    });
 
 > Please visit [Request -- Simplified HTTP request method](https://github.com/mikeal/request) for detail
+
+> Inspect response in `handlers/handler_file_name.js`
+
+    var should = require( 'should' );
+
+    module.exports = {
+
+      index : function ( args, err, res, body, log, next ){
+        // do some examination here
+        // res.should.be.json;
+        // body.should.have.property( 'msg' ).eql( '[delete] test passed' );
+
+        log( 'bla bla bla' );
+        // if the above test pass go to the next one
+        next && next();
+      }
+    };
+
+
 
 
 ### Globals
 
+- BASE_DIE
+- ACTION_DIR
+- HANDLER_DIR
+- FIXTURE_DIR
 - CONF
-    - base_dir
-    - action_dir
-    - data_dir
     - root
     - timeout
-    - routes
-
-> Plus custom configs in `configs.js`
-
+    - actions
 - UTILS
+    - color
     - $update
     - $good
     - $fine
     - $alert
+    - build_hash
+    - fixture
+    - is
+    - merge
+    - ran_no
     - regex
         - begin_slash
         - has_format
@@ -110,8 +129,6 @@ Install through npm
         - is_email
         - tail_slash
         - url
-    - ran_no
-    - typeof
     - uid
 
 > Check the source for detail
