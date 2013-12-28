@@ -1,35 +1,24 @@
 #!/usr/bin/env node
 
-var exit    = true;
-var vodka   = require( '../index' );
-var cli     = require( '../lib/cli' );
-var args    = process.argv.slice( 2 );
-var command = args.shift();
+var fs           = require( 'fs' );
+var path         = require( 'path' );
+var exit         = true;
+var cli          = require( '../lib/cli' );
+var args         = process.argv.slice( 2 );
+var command      = args.shift();
+var package_path = path.resolve( __dirname, '../package.json' );
+var version      = JSON.parse( fs.readFileSync( package_path, 'utf8' )).version;
 
 switch( command ){
   case '-v':
   case '--version':
-    console.log( vodka.version );
+    console.log( version );
 
     break;
 
   case 'n':
   case 'new':
     cli.init( args );
-    exit = false;
-
-    break;
-
-  case 'g':
-  case 'generate':
-    cli.generate( args );
-    exit = false;
-
-    break;
-
-  case 'r':
-  case 'run':
-    cli.run();
     exit = false;
 
     break;
