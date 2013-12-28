@@ -25,57 +25,146 @@ Install through npm
     Usage: vodka [command] [argument(s)]
 
     Commands:
-      -v, --version                Display vodka version
-      h,  help                     Display usage information
-      n,  new [project]            Create a new test project
-      g,  generate [file] [method] Generate code templates
-      r,  run                      Run tests
+      -v, --version     Display vodka version
+      h,  help          Display usage information
+      n,  new [project] Create a new test project
+
+    Available environment variables:
+      BASE_DIR: Test project base directory  Default: `cwd`
+      ROOT:     Testing target host and port Default: http://127.0.0.1:4000
+      TIMEOUT:  Request timeout              Default: 60000ms
 
 > Generate a new test project
 
     $ cd /path/to/the/test/folder/of/your/app
     $ vodka new your-project-name
 
-> Generate test actions
-
-    $ vodka actions users signup login
+    create  shit/
+    create  shit/actions/
+    create  shit/fixtures/
+    create  shit/validators/
+    create  shit/actions/user.js
+    create  shit/fixtures/ori_user.json
+    create  shit/validators/common.js
+    create  shit/validators/user.js
+    create  shit/package.json
 
 > Run test
 
-    # in the root dir of the test project
-    $ vodka run
+    # VODKA now come with mocha, in your test root dir call
+    $ mocha -R spec -t false -b actions
 
 
 
 ### Tutorial
 
-> Define your configuration in `configs`
+> Add your actions in `actions` dir. ex. `user.js`
 
-    module.exports = {
-      root    : 'http://127.0.0.1:4000',
-      timeout : 60000, // 1 min,
-      // add to this array if you have others route files that needs to split out
-      routes  : [ 'default' ]
-    };
+    var should    = require( 'should' );
+    var vodka     = require( '../../../index' );
+    var fixture   = vodka.fixture;
+    var validator = vodka.validator;
 
-> Add your action in `actions/action_file_name.js`
+    describe( 'Test CRUD of the users api', function (){
+      describe( 'POST /users', function (){
+        it( 'should res json with status 201 and a user obj', function ( done ){
+          vodka( 'POST /users', {
+            /* more `request` options -> https://github.com/mikeal/request */
+            // headers : {}, // pass any headers to the server
+            // form    : {}, // for passing form inputs
+            // qs      : {}, // for passing get request params
 
-    var Class = require( 'node.class' );
+            /* this is for `vodka` not for `request`;
+             * for replace the params in url;
+             * check the next test */
+            // params : {},
 
-    module.exports = Class.extend({
+            /* you can hard coded the user obj */
+            // json : {
+            //   name    : 'ben',
+            //   email   : 'ben@popapp.in',
+            //   website : 'https://popapp.in'
+            // }
 
-      init : function ( client ){
-        client.get( 'hello', this.hello, 'hello#index' );
-      },
+            /* or use fixture */
+            json : fixture( 'ori_user' )
+          }, function ( err, res, body ){
+            /* you can directly inspect res here */
+            // should.not.exist( err );
+            // res.should.be.json;
+            // res.should.have.status( 201 );
 
-      hello : function (){
-        return {
-          headers : {}, // pass any headers to the server
-          form    : {}, // for passing form inputs
-          qs      : {}, // for passing get request params
-          json    : {} // this is useful if you are testing an api server
-        };
-      }
+            /* but using validator will make the code more reusable */
+            validator( 'create', err, res, body );
+
+            /* this also applies to the user obj */
+            // user.should.have.property( '_id' ).with.a.lengthOf( 24 );
+            // user.should.have.property( 'name' ).be.a.String.and.eql( 'ben' );
+            // user.should.have.property( 'email' ).be.a.String
+            //   .and.match( vodka.utils.email );
+            // user.should.have.property( 'website' ).be.a.String
+            //   .and.eql( 'https://popapp.in' );
+            // user.should.have.property( 'created_at' ).be.a.Number;
+            // user.should.have.property( 'updated_at' ).be.a.Number;
+            // user.created_at.toString().should.have.a.lengthOf( 13 );
+            // user.updated_at.toString().should.have.a.lengthOf( 13 );
+
+            /* again validator is helpful when you have a huge code base */
+            validator( 'user', body );
+
+            /* save user obj as fixture for future related test */
+            fixture( 'user', body );
+
+            done();
+          });
+        });
+      });
+
+      describe( 'GET /users/:user_id', function (){
+        it( 'should res json with status 200 and a user obj', function ( done ){
+          vodka( 'GET /users/:user_id', {
+            params : { user_id : fixture( 'user' )._id },
+            json   : true
+          }, function ( err, res, body ){
+            validator( 'ok', err, res, body );
+            validator( 'user', body );
+
+            done();
+          });
+        });
+      });
+
+      describe( 'PUT /users/:user_id', function (){
+        it( 'should res json with status 200 and a updated user obj', function ( done ){
+          var update_user_data = fixture( 'update_user' );
+
+          vodka( 'PUT /users/:user_id', {
+            params : { user_id : fixture( 'user' )._id },
+            json   : update_user_data
+          }, function ( err, res, body ){
+            validator( 'ok', err, res, body );
+            validator( 'user', body );
+
+            fixture( 'user', body );
+            body.website.should.eql( 'https://woomoo.in' );
+
+            done();
+          });
+        });
+      });
+
+      describe( 'DELETE /users/:user_id', function (){
+        it( 'should res json with status 204', function ( done ){
+          vodka( 'DELETE /users/:user_id', {
+            params : { user_id : fixture( 'user' )._id },
+            json   : true
+          }, function ( err, res, body ){
+            validator( 'destroy', err, res, body );
+
+            done();
+          });
+        });
+      });
     });
 
 > Please visit [Request -- Simplified HTTP request method](https://github.com/mikeal/request) for detail
@@ -83,53 +172,51 @@ Install through npm
 > Inspect response in `handlers/handler_file_name.js`
 
     var should = require( 'should' );
+    var email  = require( '../../../index' ).utils.regex.email;
 
     module.exports = {
 
-      index : function ( args, err, res, body, log, next ){
-        // do some examination here
-        // res.should.be.json;
-        // body.should.have.property( 'msg' ).eql( '[delete] test passed' );
+      user : function ( user ){
+        Object.keys( user ).should.have.a.lengthOf( 6 );
 
-        log( 'bla bla bla' );
-        // if the above test pass go to the next one
-        next && next();
+        user.should.have.property( '_id' ).with.a.lengthOf( 24 );
+        user.should.have.property( 'name' ).be.a.String;
+        user.should.have.property( 'email' ).be.a.String.and.match( email );
+        user.should.have.property( 'website' ).be.a.String;
+        user.should.have.property( 'created_at' ).be.a.Number;
+        user.should.have.property( 'updated_at' ).be.a.Number;
+        user.created_at.toString().should.have.a.lengthOf( 13 );
+        user.updated_at.toString().should.have.a.lengthOf( 13 );
       }
     };
 
 
 
 
-### Globals
 
-- BASE_DIE
-- ACTION_DIR
-- HANDLER_DIR
-- FIXTURE_DIR
-- CONF
-    - root
-    - timeout
-    - actions
-- UTILS
-    - color
-    - $update
-    - $good
-    - $fine
-    - $alert
-    - build_hash
-    - fixture
-    - is
-    - merge
-    - ran_no
-    - regex
-        - begin_slash
-        - has_format
-        - has_none_characters
-        - is_js_file
-        - is_email
-        - tail_slash
-        - url
-    - uid
+### Object Properties
+
+    vodka
+      - configs
+        - BASE_DIR
+        - ROOT
+        - TIMEOUT
+      - fixture
+      - utils
+          - is
+          - merge
+          - ran_no
+          - regex
+            - begin_slash
+            - email
+            - format
+            - js_file
+            - none_characters
+            - tail_slash
+            - url
+          - uid
+      - validator
+      - version
 
 > Check the source for detail
 
