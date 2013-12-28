@@ -1,46 +1,76 @@
+/**
+ * Module dependencies.
+ */
+
 var should  = require( 'should' );
 var express = require( 'express' );
-var app     = express.createServer();
+var http    = require( 'http' );
+var app     = express();
+var utils   = require( '../../lib/utils' );
+var cache   = {};
 
-app.configure( function(){
-  app.use( express.logger());
-  app.use( express.bodyParser());
+module.exports = function ( port, done ){
+  // all environments
+  app.set( 'port', port );
+  app.use( express.logger( 'dev' ));
+  app.use( express.json());
+  app.use( express.urlencoded());
   app.use( express.methodOverride());
   app.use( app.router );
-});
 
-app.get( '/tests/get', function ( req, res ){
-  req.should.be.json;
-  req.headers.should.have.property( 'x-headers' );
+  app.post( '/users', function ( req, res ){
+    req.should.be.json;
 
-  res.json({ msg : '[get] test passed' });
-});
+    var user = req.body;
 
-app.post( '/tests/post', function ( req, res ){
-  req.should.be.json;
-  req.headers.should.have.property( 'x-headers' );
-  req.body.test.should.eql( 'JSON test' );
+    Object.keys( user ).should.have.a.lengthOf( 3 );
 
-  res.json({ msg : '[post] test passed' });
-});
+    user.should.have.property( 'name' ).be.a.String;
+    user.should.have.property( 'email' ).be.a.String;
+    user.should.have.property( 'website' ).be.a.String;
 
-app.put( '/tests/put', function ( req, res ){
-  req.should.be.json;
-  req.body.test.should.eql( 'JSON test' );
-  req.headers.should.have.property( 'x-headers' );
+    user._id        = utils.uid( 24 );
+    user.created_at = Date.now();
+    user.updated_at = Date.now();
 
-  res.json({ msg : '[put] test passed' });
-});
+    res.status( 201 ).json( user );
 
-app.delete( '/tests/delete', function ( req, res ){
-  req.should.be.json;
-  req.headers.should.have.property( 'x-headers' );
-  req.body.test.should.eql( 'JSON test' );
+    cache[ user._id ] = user;
+  });
 
-  res.json({ msg : '[delete] test passed' });
-});
+  app.get( '/users/:user_id', function ( req, res ){
+    req.params.should.have.property( 'user_id' ).
+      be.a.String.with.a.lengthOf( 24 );
 
-module.exports = function ( port, next ){
-  app.listen( port );
-  next();
+    var user = cache[ req.params.user_id ];
+
+    res.json( user );
+  });
+
+  app.put( '/users/:user_id', function ( req, res ){
+    req.should.be.json;
+    req.params.should.have.property( 'user_id' ).
+      be.a.String.with.a.lengthOf( 24 );
+
+    var user = cache[ req.params.user_id ];
+
+    for( var name in req.body ){
+      user[ name ] = req.body[ name ];
+    }
+
+    res.json( user );
+  });
+
+  app.delete( '/users/:user_id', function ( req, res ){
+    delete cache[ req.params.user_id ]
+
+    res.statusCode = 204;
+    res.header( 'content-type', 'application/json; charset=utf-8' );
+    res.end();
+  });
+
+  http.createServer( app ).listen( app.get( 'port' ), function (){
+    console.log('Express server listening on port ' + app.get( 'port' ));
+    done();
+  });
 };
