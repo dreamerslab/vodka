@@ -1,5 +1,11 @@
 #History
 
+## 3.0.0 / 2013-12-27
+
+- Integrate with mocha
+
+
+
 ## 2.3.1 / 2013-12-20
 
 - [refactoring] `utils.typeof` changed to `utils.is` in test
