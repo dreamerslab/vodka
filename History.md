@@ -1,5 +1,11 @@
 #History
 
+## 3.0.1 / 2014-01-26
+
+- [update packages] `express`->3.4.8, `mocha`->1.17.1, `should`->3.1.0
+
+
+
 ## 3.0.0 / 2013-12-27
 
 - Integrate with mocha
