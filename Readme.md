@@ -169,10 +169,10 @@ Install through npm
 
 > Please visit [Request -- Simplified HTTP request method](https://github.com/mikeal/request) for detail
 
-> Inspect response in `handlers/handler_file_name.js`
+> Inspect response format with validator in `validators/validator_file_name.js`
 
     var should = require( 'should' );
-    var email  = require( '../../../index' ).utils.regex.email;
+    var email  = require( 'vokda' ).utils.regex.email;
 
     module.exports = {
 
@@ -189,8 +189,6 @@ Install through npm
         user.updated_at.toString().should.have.a.lengthOf( 13 );
       }
     };
-
-
 
 
 
