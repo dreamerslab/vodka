@@ -1,6 +1,6 @@
 {
   "name"        : "vodka",
-  "version"     : "3.0.0",
+  "version"     : "3.0.1",
   "description" : "A functional testing framework for web apps",
   "bin"        : {
     "vdk" : "./bin/vodka"
@@ -10,12 +10,12 @@
   ],
   "author"       : "dreamerslab <ben@dreamerslab.com>",
   "dependencies" : {
-    "request"    : "2.30.0"
+    "request"    : "2.33.0"
   },
   "devDependencies": {
-    "express" : "3.4.7",
-    "mocha"   : "1.16.2",
-    "should"  : "2.1.1"
+    "express" : "3.4.8",
+    "mocha"   : "1.17.1",
+    "should"  : "3.1.0"
   },
   "main"       : "index",
   "repository" : {
