@@ -1,5 +1,12 @@
 #History
 
+## 3.0.2 / 2014-01-26
+
+- [update packages] `request`->2.34.0, `should`->3.1.3
+- [bug fix] Context error
+
+
+
 ## 3.0.1 / 2014-01-26
 
 - [update packages] `express`->3.4.8, `mocha`->1.17.1, `should`->3.1.0
