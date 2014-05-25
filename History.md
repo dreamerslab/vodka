@@ -1,5 +1,12 @@
 #History
 
+## 3.0.3 / 2014-05-25
+
+- [update packages] `express`->3.5.1, `mocha`->1.19.0, `request`->2.36.0, `should`->3.3.2
+- [bug fix] require the package instead of a file in template
+
+
+
 ## 3.0.2 / 2014-01-26
 
 - [update packages] `request`->2.34.0, `should`->3.1.3
