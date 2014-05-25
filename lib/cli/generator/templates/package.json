@@ -4,9 +4,9 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
-    "mocha"  : "1.16.2",
-    "vodka"  : "3.0.0",
-    "should" : "2.1.1"
+    "mocha"  : "1.19.0",
+    "vodka"  : "3.0.3",
+    "should" : "3.3.2"
   },
   "main": "server",
   "engines": [
@@ -14,5 +14,5 @@
   ],
   "scripts" : {
     "test"  : "mocha -R spec -t false -b actions"
-  },
+  }
 }
