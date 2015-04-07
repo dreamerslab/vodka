@@ -1,4 +1,5 @@
-var should = require( 'should' );
+var should      = require( 'should' );
+var should_http = require( 'should-http' );
 
 module.exports = {
 
