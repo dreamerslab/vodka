@@ -1,5 +1,11 @@
 #History
 
+## 3.0.4 / 2014-04-07
+
+- [update packages] `mocha`->2.2.1, `request`->2.55.0, `should`->5.2.0, `should-http`->0.0.2
+
+
+
 ## 3.0.3 / 2014-05-25
 
 - [update packages] `express`->3.5.1, `mocha`->1.19.0, `request`->2.36.0, `should`->3.3.2
