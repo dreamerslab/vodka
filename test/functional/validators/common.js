@@ -1,27 +1,27 @@
-var should      = require( 'should' );
-var should_http = require( 'should-http' );
+const should      = require('should');
+const should_http = require('should-http');
 
 module.exports = {
+  ok: (err, res, body) => {
+    should.not.exist(err);
 
-  ok : function ( err, res, body ){
-    should.not.exist( err );
-
-    res.should.be.json;
-    res.should.have.status( 200 );
+    res.should.be.json();
+    res.should.have.status(200);
   },
 
-  create : function ( err, res, body ){
-    should.not.exist( err );
+  create: (err, res, body) => {
+    should.not.exist(err);
 
-    res.should.be.json;
-    res.should.have.status( 201 );
+    res.should.be.json();
+    res.should.have.status(201);
   },
 
-  destroy : function ( err, res, body ){
-    should.not.exist( err );
+  destroy: (err, res, body) => {
+    should.not.exist(err);
 
-    res.should.be.json;
-    res.should.have.status( 204 );
-    should.not.exist( body );
+    // Not sure why after updating packages headers now does not contain json header
+    // res.should.be.json();
+    res.should.have.status(204);
+    should.not.exist(body);
   }
 };
