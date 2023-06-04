@@ -1,34 +1,44 @@
 {
-  "name"        : "vodka",
-  "version"     : "3.0.4",
-  "description" : "A functional testing framework for web apps",
-  "bin"        : {
-    "vdk" : "./bin/vodka"
+  "name": "vodka",
+  "version": "4.0.0",
+  "description": "A functional testing framework for web apps",
+  "bin": {
+    "vdk": "./bin/vodka"
   },
-  "keywords"    : [
-    "test", "testing", "functinal test", "restful client"
+  "keywords": [
+    "test",
+    "testing",
+    "functinal test",
+    "restful client"
   ],
-  "author"       : "dreamerslab <ben@dreamerslab.com>",
-  "dependencies" : {
-    "request"    : "2.55.0"
+  "author": "dreamerslab <ben@dreamerslab.com>",
+  "dependencies": {
+    "request": "2.88.2"
   },
   "devDependencies": {
-    "express"    : "3.5.1",
-    "mocha"      : "2.2.1",
-    "should"     : "5.2.0",
-    "should-http": "0.0.2"
+    "body-parser"    : "1.20.2",
+    "express"        : "4.18.2",
+    "method-override": "3.0.0",
+    "mocha"          : "10.2.0",
+    "morgan"         : "1.10.0",
+    "should"         : "13.2.3",
+    "should-http"    : "0.1.1"
   },
-  "main"       : "index",
-  "repository" : {
-    "type"     : "git",
-    "url"      : "https://github.com/dreamerslab/vodka.git"
+  "main": "index",
+  "repository": {
+    "type": "git",
+    "url" : "https://github.com/dreamerslab/vodka.git"
   },
-  "engines" : [ "node >= 0.8.0" ],
-  "licenses": [{
-    "type": "MIT",
-    "url" : "http://en.wikipedia.org/wiki/MIT_License"
-  }],
-  "scripts" : {
-    "test"  : "BASE_DIR=`pwd`/test/functional mocha -R spec -t false -b"
+  "engines": [
+    "node >= 14.0.0"
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://en.wikipedia.org/wiki/MIT_License"
+    }
+  ],
+  "scripts": {
+    "test": "BASE_DIR=`pwd`/test/functional mocha --serial -R spec -t false -b"
   }
 }

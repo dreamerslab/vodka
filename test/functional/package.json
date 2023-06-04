@@ -4,15 +4,15 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
-    "mocha"  : "1.16.2",
-    "vodka"  : "3.0.0",
-    "should" : "2.1.1"
+    "mocha"  : "10.2.0",
+    "vodka"  : "4.0.0",
+    "should" : "13.2.3"
   },
   "main": "server",
   "engines": [
-    "node >= 0.10.0"
+    "node >= 14.0.0"
   ],
   "scripts" : {
-    "test"  : "mocha -R spec -t false -b actions"
-  },
+    "test"  : "mocha --serial -R spec -t false -b actions"
+  }
 }
