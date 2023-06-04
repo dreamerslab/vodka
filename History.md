@@ -1,5 +1,11 @@
 #History
 
+## 4.0.0 / 2023-06-04
+
+- [update packages] `request`->2.88.2, `express`->4.18.2, `mocha`->10.2.0, `should`->13.2.3, `should-http`->0.1.1, `body-parser`->1.20.2, `method-override`->3.0.0, `morgan`->1.10.0
+
+
+
 ## 3.0.4 / 2014-04-07
 
 - [update packages] `mocha`->2.2.1, `request`->2.55.0, `should`->5.2.0, `should-http`->0.0.2
