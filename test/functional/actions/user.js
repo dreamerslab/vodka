@@ -60,7 +60,7 @@ describe('Test CRUD of the users api', () => {
     it('should res json with status 200 and a user obj', (done) => {
       vodka('GET /users/:user_id', {
         params: { user_id: fixture('user')._id },
-        json: true
+        json  : true
       }, (err, res, body) => {
         validator('ok', err, res, body);
         validator('user', body);
@@ -76,7 +76,7 @@ describe('Test CRUD of the users api', () => {
 
       vodka('PUT /users/:user_id', {
         params: { user_id: fixture('user')._id },
-        json: update_user_data
+        json  : update_user_data
       }, (err, res, body) => {
         validator('ok', err, res, body);
         validator('user', body);
@@ -93,7 +93,7 @@ describe('Test CRUD of the users api', () => {
     it('should res json with status 204', (done) => {
       vodka('DELETE /users/:user_id', {
         params: { user_id: fixture('user')._id },
-        json: true
+        json  : true
       }, (err, res, body) => {
         validator('destroy', err, res, body);
 

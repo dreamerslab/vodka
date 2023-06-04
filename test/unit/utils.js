@@ -1,72 +1,72 @@
-var should = require( 'should' );
-var utils  = require( '../../lib/utils' );
+const should = require('should');
+const utils = require('../../lib/utils');
 
-describe( 'utils.js tests', function (){
-  describe( 'test utils.is', function (){
-    it( 'should eql undefined', function (){
-      utils.is( undefined ).should.eql( 'undefined' );
+describe('utils.js tests', () => {
+  describe('test utils.is', () => {
+    it('should eql undefined', () => {
+      utils.is(undefined).should.eql('undefined');
     });
 
-    it( 'should eql null', function (){
-      utils.is( null ).should.eql( 'null' );
+    it('should eql null', () => {
+      utils.is(null).should.eql('null');
     });
 
-    it( 'should eql NaN', function (){
-      utils.is( parseInt( 'fff' )).should.eql( 'NaN' );
+    it('should eql NaN', () => {
+      utils.is(parseInt('fff')).should.eql('NaN');
     });
 
-    it( 'should eql string', function (){
-      utils.is( '' ).should.eql( 'string' );
+    it('should eql string', () => {
+      utils.is('').should.eql('string');
     });
 
-    it( 'should eql object', function (){
-      utils.is({}).should.eql( 'object' );
+    it('should eql object', () => {
+      utils.is({}).should.eql('object');
     });
 
-    it( 'should eql array', function (){
-      utils.is([]).should.eql( 'array' );
-      utils.is( new Array()).should.eql( 'array' );
+    it('should eql array', () => {
+      utils.is([]).should.eql('array');
+      utils.is(new Array()).should.eql('array');
     });
 
-    it( 'should eql number', function (){
-      utils.is( 1234 ).should.eql( 'number' );
+    it('should eql number', () => {
+      utils.is(1234).should.eql('number');
     });
 
-    it( 'should eql boolean', function (){
-      utils.is( true ).should.eql( 'boolean' );
+    it('should eql boolean', () => {
+      utils.is(true).should.eql('boolean');
     });
 
-    it( 'should eql function', function (){
-      utils.is( function(){}).should.eql( 'function' );
+    it('should eql function', () => {
+      utils.is(() => {}).should.eql('function');
     });
 
-    it( 'should eql error', function (){
-      utils.is( new Error()).should.eql( 'error' );
+    it('should eql error', () => {
+      utils.is(new Error()).should.eql('error');
     });
   });
 
-  describe( 'test utils.merge', function (){
-    var result = utils.merge(
-      { a : 1, b : 2 },
-      { a : 3, x : 4 }
+  describe('test utils.merge', () => {
+    const result = utils.merge(
+      { a: 1, b: 2 },
+      { a: 3, x: 4 }
     );
 
-    it( 'should merge 2 objs with 3 props in total', function (){
-      result.should.have.property( 'a' ).eql( 3 );
-      result.should.have.property( 'b' ).eql( 2 );
-      result.should.have.property( 'x' ).eql( 4 );
+    it('should merge 2 objs with 3 props in total', () => {
+      result.should.have.property('a').eql(3);
+      result.should.have.property('b').eql(2);
+      result.should.have.property('x').eql(4);
     });
   });
 
-  describe( 'test utils.ran_no', function (){
-    it( 'should produce random number between 5 to 20', function (){
-      utils.ran_no( 5, 20 ).should.be.within( 5, 20 );
+  describe('test utils.ranNo', () => {
+    it('should produce random number between 5 to 20', () => {
+      utils.ranNo(5, 20).should.be.within(5, 20);
     });
   });
 
-  describe( 'test utils.uid', function (){
-    it( 'should produce uid with length of 32', function (){
-      utils.uid( 32 ).should.be.a.String.and.have.a.lengthOf( 32 );
+  describe('test utils.uid', () => {
+    it('should produce uid with length of 32', () => {
+      utils.uid(32).should.be.a.String().and.have.lengthOf(32);
     });
   });
 });

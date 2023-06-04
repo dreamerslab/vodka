@@ -1,26 +1,25 @@
 #!/usr/bin/env node
 
-var fs           = require( 'fs' );
-var path         = require( 'path' );
-var exit         = true;
-var cli          = require( '../lib/cli' );
-var args         = process.argv.slice( 2 );
-var command      = args.shift();
-var package_path = path.resolve( __dirname, '../package.json' );
-var version      = JSON.parse( fs.readFileSync( package_path, 'utf8' )).version;
+const fs          = require('fs');
+const path        = require('path');
+const cli         = require('../lib/cli');
+const args        = process.argv.slice(2);
+const command     = args.shift();
+const packagePath = path.resolve(__dirname, '../package.json');
+const version     = JSON.parse(fs.readFileSync(packagePath, 'utf8')).version;
 
-switch( command ){
+var exit = true;
+
+switch (command) {
   case '-v':
   case '--version':
-    console.log( version );
-
+    console.log(version);
     break;
 
   case 'n':
   case 'new':
-    cli.init( args );
+    cli.init(args);
     exit = false;
-
     break;
 
   case 'h':
@@ -29,8 +28,7 @@ switch( command ){
   case '--help':
   default:
     cli.help();
-
     break;
 }
 
-exit && process.exit( 0 );
+exit && process.exit(0);
